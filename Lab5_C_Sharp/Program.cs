@@ -10,12 +10,28 @@ namespace Lab5_C_Sharp
     {
         static void Main(string[] args)
         {
-            
+            Cat c1 = new Cat("Marik");
 
 
-            
-           
+            //test
+            c1.Jump();
+            c1.Jump();
+            c1.Jump();
+            c1.Jump();
+            c1.Jump();
+            c1.Jump();
+            c1.Jump();
+            c1.CheckEnergy();
+            c1.Jump();
+            c1.Jump();
+            c1.Jump();
+            c1.CheckEnergy();
+            c1.Sleep();
+            c1.Sleep();
 
+
+
+            Console.ReadKey();
         }
     }
 }
