@@ -10,7 +10,7 @@ namespace Lab5_C_Sharp
     {
         static void Main(string[] args)
         {
-            Cat c1 = new Cat("Marik");
+            Cat c1 = new Cat("Marik", Gender.Male);
 
 
             //test

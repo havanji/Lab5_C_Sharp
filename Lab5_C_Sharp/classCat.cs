@@ -5,27 +5,24 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
+public enum Gender { Male, Famale };
 class Cat
 {
     private string name;
     private double _energy;
-    public string Name { get { return name; } }
-    private enum gender { Male, Famale};
-    /*public enum Gender
-    {
-        get { return gender { Male, Famale };
-    }*/
+    public string Name {get;}
+    public Gender catGender{get;}
 
     public double Energy
     {
         get { return _energy; }
         set
         {
-            if (this._energy > MaxEnergy)
+            if (value > MaxEnergy)
             {
-                this._energy = MaxEnergy;
+                _energy = MaxEnergy;
             }
-            else if (this._energy < MinEnergy)
+            else if (value < MinEnergy)
             {
                 Console.WriteLine("Not enough energy to jump");
             }
@@ -41,10 +38,10 @@ class Cat
     public static readonly double SleepEnergyGain = 10;
     public static readonly double JumpEnergyDrain = 0.5;
 
-    public Cat(string Name/*, string gender*/)
+    public Cat(string Name, Gender gender)
     {
         this.name = Name;
-        /*this.gender = gender;*/
+        this.catGender = gender;
         Energy = MaxEnergy;
     }
 
@@ -55,7 +52,7 @@ class Cat
 
         Energy -= JumpEnergyDrain;
 
-        Console.WriteLine($"{Name} стрибнув, його енергія: {Energy}");
+        Console.WriteLine($"{this.name} стрибнув, його енергія: {Energy}");
     }
 
     public void Sleep()
@@ -64,12 +61,8 @@ class Cat
         Console.InputEncoding = System.Text.Encoding.Unicode;
 
         Energy += SleepEnergyGain;
-        if (Energy > MaxEnergy)
-        {
-            Energy = MaxEnergy;
-        }
 
-        Console.WriteLine($"{Name} ляг спати і відновив енергію до: {Energy}");
+        Console.WriteLine($"{this.name} ляг спати і відновив енергію до: {Energy}");
     }
 
     public void CheckEnergy()
